@@ -1,0 +1,38 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI: {
+    headerInfo: {
+        typeName: 'Header',
+        typeNamePlural: 'Headers',
+        title: {
+            type: #STANDARD,
+            value: 'HeaderID'
+        }
+     }
+  }
+
+annotate view Z_C_SALESORD_H_1636 with
+{
+  @UI.facet: [{ id: 'Header',
+                purpose: #STANDARD,
+                type: #IDENTIFICATION_REFERENCE,
+                label: 'Header',
+                position: 10 },
+               {
+                 id: 'Item',
+                 purpose: #STANDARD,
+                 type: #LINEITEM_REFERENCE,
+                 label: 'Item',
+                 position: 20,
+                 targetElement: '_Item' }]
+  @UI:{ lineItem: [{
+            position: 10,
+            exclude: true,
+            hidden: true,
+            importance: #HIGH
+         }],
+
+         identification: [{ position: 10, label : 'Header ID[1,...,99999999]' }]}
+  @Search.defaultSearchElement: true
+  HeaderID;
+}
