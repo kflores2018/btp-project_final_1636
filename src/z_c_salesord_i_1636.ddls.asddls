@@ -18,5 +18,7 @@ define view entity Z_C_SALESORD_I_1636
       depth,
       quantity,
       unitofmeasure,
+      @Semantics.systemDateTime.lastChangedAt: true
+      last_changed_at,
       _Header : redirected to parent Z_C_SALESORD_H_1636
 }

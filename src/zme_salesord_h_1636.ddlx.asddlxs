@@ -27,12 +27,35 @@ annotate view Z_C_SALESORD_H_1636 with
                  targetElement: '_Item' }]
   @UI:{ lineItem: [{
             position: 10,
-            exclude: true,
-            hidden: true,
             importance: #HIGH
          }],
 
-         identification: [{ position: 10, label : 'Header ID[1,...,99999999]' }]}
+  identification: [{ position: 10, label : 'Header ID[1,...,99999999]' }]}
   @Search.defaultSearchElement: true
   HeaderID;
+  
+  @UI: { lineItem: [ { position: 30, importance: #HIGH } ], identification: [ { position: 30 } ] }
+  email;
+  @UI: { lineItem: [ { position: 30, importance: #HIGH } ], identification: [ { position: 30 } ] }
+  firstname;
+  @UI: { lineItem: [ { position: 30, importance: #HIGH } ], identification: [ { position: 30 } ] }
+  lastname;
+  @UI: { lineItem: [ { position: 30, importance: #HIGH } ], identification: [ { position: 30 } ] }
+  country;
+  @UI: { lineItem: [ { position: 30, importance: #HIGH } ], identification: [ { position: 30 } ] }
+  createon;
+  @UI: { lineItem: [ { position: 30, importance: #HIGH } ], identification: [ { position: 30 } ] }
+  deliverydate;
+  @UI: { lineItem: [ { position: 30, importance: #HIGH } ], identification: [ { position: 30 } ] }
+  orderstatus;
+  @UI: { lineItem: [ { position: 30, importance: #HIGH } ], identification: [ { position: 30 } ] }
+  imageurl;
+  @UI: { lineItem: [ { position: 30, importance: #HIGH } ], identification: [ { position: 30 } ] }
+  create_by;
+  @UI: { lineItem: [ { position: 30, importance: #HIGH } ], identification: [ { position: 30 } ] }
+  create_at;  
+  @UI.hidden: true
+  last_changed_by;  
+  @UI.hidden: true
+  last_changed_at;
 }

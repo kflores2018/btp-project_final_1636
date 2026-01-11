@@ -25,6 +25,8 @@ define view entity Z_I_SALESORD_I_1636 as select from zsalesord_i_1636 as Item
       width,
       depth,
       quantity,
-      unitofmeasure ,    
+      unitofmeasure ,   
+      @Semantics.systemDateTime.lastChangedAt: true
+      last_changed_at,
       _Header
 }

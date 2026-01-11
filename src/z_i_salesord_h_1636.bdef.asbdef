@@ -1,0 +1,33 @@
+managed implementation in class zbp_i_salesord_h_1636 unique;
+strict ( 2 );
+
+define behavior for Z_I_SALESORD_H_1636 alias Header
+persistent table zsalesord_h_1636
+lock master
+authorization master ( instance )
+etag master last_changed_at
+{
+  //Campos de lectura
+  field ( readonly ) header_id, last_changed_at, last_changed_by, create_at, create_by ;  //Campos administrativos
+  //Campos obligatorios
+  field ( mandatory ) email, firstname, lastname, country, deliverydate, orderstatus;
+  create ( authorization : global );
+  update;
+  delete;
+  association _Item { create; }
+}
+
+define behavior for Z_I_SALESORD_I_1636 alias Item
+persistent table zsalesord_i_1636
+lock dependent by _Header
+authorization dependent by _Header
+etag master last_changed_at
+{
+  //Campos de lectura
+  field ( readonly ) header_id, id;
+  //Campos obligatorios
+  field ( mandatory ) description, name, price, quantity, unitofmeasure;
+  update;
+  delete;
+  association _Header;
+}
