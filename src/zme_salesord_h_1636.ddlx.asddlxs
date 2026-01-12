@@ -1,0 +1,71 @@
+@Metadata.layer: #CORE
+@UI:{
+      headerInfo: { typeName: 'Header',
+                    typeNamePlural: 'Headers',
+                    title: { type: #STANDARD,
+                             value: 'HeaderID' } },
+      presentationVariant: [{ sortOrder: [{ by: 'HeaderID',
+                                            direction: #DESC }],
+                              visualizations: [{ type: #AS_LINEITEM }]  }] }
+annotate entity ZSALESORDH_C_1636 with
+{
+  @UI.facet: [{ id: 'Header',
+             label: 'Header',
+             type: #IDENTIFICATION_REFERENCE,
+             position: 10 },
+             { id: 'Item',
+             label: 'Item',
+             type: #LINEITEM_REFERENCE,
+             position: 20,
+             targetElement: '_Item' } ]
+
+  @UI.hidden: true
+  HeaderUUID;
+  
+  @UI: { lineItem: [{ position: 10, importance: #HIGH },
+                    { type: #FOR_ACTION,
+                      dataAction: 'acceptOrder',
+                      label: 'Accept Order' },
+                    { type: #FOR_ACTION,
+                      dataAction: 'rejectOrder',
+                      label: 'Reject Order'}],
+         identification: [{ position: 10, label: 'Header Id' },
+                    { type: #FOR_ACTION,
+                      dataAction: 'acceptOrder',
+                      label: 'Accept Order',
+                      position: 10 },
+                    { type: #FOR_ACTION,
+                      dataAction: 'rejectOrder',
+                      label: 'Reject Order',
+                      position: 20
+                    }],
+          selectionField: [{ position: 10 }] }
+  HeaderID;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 80 }] }
+  Email;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 80 }] }
+  Firstname;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 80 }] }
+  Lastname;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 80 }] }
+  Country;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 80 }] }
+  Createon;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 80 }] }
+  Deliverydate;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 80 }] }
+  Orderstatus;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 80 }] }
+  Imageurl;
+  @UI.hidden: true
+  LocalCreateBy;
+  @UI.hidden: true
+  LocalCreateAt;
+  @UI.hidden: true
+  LocalLastChangedBy;
+  @UI.hidden: true
+  LocalLastChangedAt;
+  @UI.hidden: true
+  LastChangedAt;
+
+}
