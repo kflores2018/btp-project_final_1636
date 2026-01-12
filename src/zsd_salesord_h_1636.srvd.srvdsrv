@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition - Header 1636'
+define service ZSD_SALESORD_H_1636 {
+  expose ZSALESORDH_C_1636 as Header;
+  expose ZSALESORDI_C_1636 as Item;
+}
