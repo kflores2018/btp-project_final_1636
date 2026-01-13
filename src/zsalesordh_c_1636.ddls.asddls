@@ -2,19 +2,23 @@
 @EndUserText.label: 'Consumption - Header 1636'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
+@Search.searchable: true
+
 define root view entity ZSALESORDH_C_1636
  provider contract transactional_query
   as projection on ZSALESORDH_R_1636
 {
   key HeaderUUID,
+  
+      @Search.defaultSearchElement: true
       HeaderID,
       Email,
       Firstname,
       Lastname,
       Country,
       Createon,
-      Deliverydate,
-      Orderstatus,
+      Deliverydate,            
+      Orderstatus,            
       Imageurl,
       LocalCreateBy,
       LocalCreateAt,

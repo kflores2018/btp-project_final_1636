@@ -1,0 +1,46 @@
+@Metadata.layer: #CORE
+@UI:{
+      headerInfo: { typeName: 'Detalle',
+                    typeNamePlural: 'Detalles',
+                    title: { type: #STANDARD,
+                             value: 'ItemID' } } }
+annotate entity ZSALESORDI_C_1636 with
+{
+
+  @UI.facet: [{ id: 'Detalle',
+             label: 'Detalle',
+             type: #IDENTIFICATION_REFERENCE,
+             position: 10 } ]
+
+  @UI.hidden: true
+  ItemUUID;
+  @UI.hidden: true
+  HeaderUUID;
+
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'ID Detalle' }] }
+  ItemID;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'Name' }] }
+  Name;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'Description' }] }
+  Description;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'ReleaseDate' }] }
+  Releasedate;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'DiscontinuedDate' }] }
+  Discontinueddate;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'Price' }] }
+  Price;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'Height' }] }
+  Height;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'Width' }] }
+  Width;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'Depth' }] }
+  Depth;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'Quantity' }] }
+  Quantity;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'UnitOfMeasure' }] }
+  Unitofmeasure;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+}

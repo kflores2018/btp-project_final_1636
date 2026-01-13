@@ -1,10 +1,13 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Consumption - Item 1636'
 @Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+@Search.searchable: true
 define view entity ZSALESORDI_C_1636 as projection on ZSALESORDI_R_1636
 {
     key ItemUUID,
     HeaderUUID,
+    @Search.defaultSearchElement: true
     ItemID,
     Name,
     Description,
