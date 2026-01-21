@@ -27,6 +27,7 @@ authorization master ( instance, global )
   field ( mandatory ) email;
 
   determination setOrderNumber on save { create; }
+  determination setStatusToOpen on modify { create; }
 
   action ( features : instance, authorization : update ) acceptOrder result [1] $self;
   action ( features : instance, authorization : update ) rejectOrder result [1] $self;
