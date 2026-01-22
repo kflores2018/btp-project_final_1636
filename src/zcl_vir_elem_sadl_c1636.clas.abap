@@ -30,6 +30,9 @@ CLASS zcl_vir_elem_sadl_c1636 IMPLEMENTATION.
        ENDCASE.
     ENDLOOP.
 
+    ct_calculated_data = CORRESPONDING #( lt_original_data ).
+    free: lt_original_data.
+
   ENDMETHOD.
 
   METHOD if_sadl_exit_calc_element_read~get_calculation_info.

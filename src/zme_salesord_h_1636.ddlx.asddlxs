@@ -61,14 +61,12 @@ annotate entity ZSALESORDH_C_1636 with
   @UI: { lineItem: [{ position: 60, importance: #HIGH }], identification: [{ position: 60, label: 'CreateOn' }] }
   Createon;
   @UI: { lineItem: [{ position: 70, importance: #HIGH }], identification: [{ position: 70, label: 'DeliveryDate' }] }
-  Deliverydate;
+  Deliverydate;  
   @UI.hidden: true
 //  @UI: { lineItem: [{ position: 80, importance: #MEDIUM }], identification: [{ position: 80, label: 'OrderStatus' }],
 //         selectionField: [{ position: 40 }], textArrangement: #TEXT_ONLY }
   Orderstatus;
-//  @UI: { lineItem: [{ position: 90, importance: #MEDIUM }], identification: [{ position: 90, label: 'ImageUrl' }] }
-  @UI: { lineItem: [{ position: 80, importance: #MEDIUM }], identification: [{ position: 80, label: 'OrderStatus' }],
-         selectionField: [{ position: 40 }], textArrangement: #TEXT_ONLY }
+  @UI: { lineItem: [{ position: 90, importance: #MEDIUM }], identification: [{ position: 90, label: 'Txt.Estado' }] }
   EstadoOrden;
   @UI: { lineItem: [{ position: 100, importance: #MEDIUM }], identification: [{ position: 100, label: 'ImageUrl' }] }
   Imageurl;
