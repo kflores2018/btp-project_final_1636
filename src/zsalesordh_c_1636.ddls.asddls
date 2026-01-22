@@ -3,7 +3,7 @@
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
 @Search.searchable: true
-
+@ObjectModel.semanticKey: [ 'HeaderID' ]
 define root view entity ZSALESORDH_C_1636
  provider contract transactional_query
   as projection on ZSALESORDH_R_1636
@@ -17,8 +17,11 @@ define root view entity ZSALESORDH_C_1636
       Lastname,
       Country,
       Createon,
-      Deliverydate,            
-      Orderstatus,            
+      Deliverydate,
+      @EndUserText.label: 'Orden Estado'      
+      @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_VIR_ELEM_SADL_C1636'
+      virtual EstadoOrden: abap.char( 10 ),
+      Orderstatus,                   
       Imageurl,
       LocalCreateBy,
       LocalCreateAt,

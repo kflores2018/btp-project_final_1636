@@ -3,9 +3,9 @@ CLASS lhc_Header DEFINITION INHERITING FROM cl_abap_behavior_handler.
 
     CONSTANTS:
       BEGIN OF order_status,
-        open     TYPE INT1 value 1,
-        accepted TYPE int1 value 2,
-        rejected TYPE int1 value 3,
+        open     TYPE int1 VALUE 1,
+        accepted TYPE int1 VALUE 2,
+        rejected TYPE int1 VALUE 3,
       END OF order_status.
 
     METHODS get_instance_features FOR INSTANCE FEATURES
@@ -53,7 +53,7 @@ CLASS lhc_Header IMPLEMENTATION.
 
   METHOD acceptOrder.
 
-    MODIFY ENTITIES OF ZSALESORDH_R_1636 IN LOCAL MODE
+    MODIFY ENTITIES OF zsalesordh_r_1636 IN LOCAL MODE
     ENTITY Header
     UPDATE
     FIELDS ( Orderstatus )
@@ -61,13 +61,13 @@ CLASS lhc_Header IMPLEMENTATION.
                                            Orderstatus = order_status-accepted
                                         ) ).
 
-    READ ENTITIES OF ZSALESORDH_R_1636 in LOCAL MODE
+    READ ENTITIES OF zsalesordh_r_1636 IN LOCAL MODE
     ENTITY Header
     ALL FIELDS
     WITH CORRESPONDING #( keys )
     RESULT DATA(headers).
 
-    RESULT = VALUE #( FOR header in headers ( %tky   = header-%tky
+    result = VALUE #( FOR header IN headers ( %tky   = header-%tky
                                               %param = header
                                             ) ).
 
@@ -75,7 +75,7 @@ CLASS lhc_Header IMPLEMENTATION.
 
   METHOD rejectOrder.
 
-    MODIFY ENTITIES OF ZSALESORDH_R_1636 IN LOCAL MODE
+    MODIFY ENTITIES OF zsalesordh_r_1636 IN LOCAL MODE
     ENTITY Header
     UPDATE
     FIELDS ( Orderstatus )
@@ -83,13 +83,13 @@ CLASS lhc_Header IMPLEMENTATION.
                                            Orderstatus = order_status-rejected
                                         ) ).
 
-    READ ENTITIES OF ZSALESORDH_R_1636 in LOCAL MODE
+    READ ENTITIES OF zsalesordh_r_1636 IN LOCAL MODE
     ENTITY Header
     ALL FIELDS
     WITH CORRESPONDING #( keys )
     RESULT DATA(headers).
 
-    RESULT = VALUE #( FOR header in headers ( %tky   = header-%tky
+    result = VALUE #( FOR header IN headers ( %tky   = header-%tky
                                               %param = header
                                             ) ).
   ENDMETHOD.
@@ -98,6 +98,27 @@ CLASS lhc_Header IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD setOrderNumber.
+
+    READ ENTITIES OF zsalesordh_r_1636 IN LOCAL MODE
+    ENTITY Header
+    FIELDS ( HeaderID )
+    WITH CORRESPONDING #( keys )
+    RESULT DATA(headers).
+
+    DELETE headers WHERE HeaderID IS NOT INITIAL.
+
+    SELECT SINGLE FROM zsalesord_h_1636
+          FIELDS MAX( header_id )
+          INTO @DATA(max_HeaderID).
+
+    MODIFY ENTITIES OF zsalesordh_r_1636 IN LOCAL MODE
+          ENTITY Header
+          UPDATE
+          FIELDS ( HeaderID )
+          WITH VALUE #( FOR header IN headers INDEX INTO i ( %tky = header-%tky
+                                                             HeaderID = conv int1( max_headerid + i )
+                                                            ) ).
+
   ENDMETHOD.
 
   METHOD validateDates.
@@ -118,11 +139,11 @@ CLASS lhc_Header IMPLEMENTATION.
 
     CHECK headers IS NOT INITIAL.
 
-    MODIFY ENTITIES OF ZSALESORDH_R_1636 IN LOCAL MODE
+    MODIFY ENTITIES OF zsalesordh_r_1636 IN LOCAL MODE
     ENTITY Header
     UPDATE
     FIELDS ( Orderstatus )
-    WITH VALUE #( FOR HEADER IN headers ( %tky = HEADER-%tky
+    WITH VALUE #( FOR header IN headers ( %tky = header-%tky
                                           Orderstatus = order_status-open
                                         )
                  ).

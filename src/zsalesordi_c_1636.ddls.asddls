@@ -3,6 +3,7 @@
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
 @Search.searchable: true
+@ObjectModel.semanticKey: [ 'ItemID' ]
 define view entity ZSALESORDI_C_1636 as projection on ZSALESORDI_R_1636
 {
     key ItemUUID,

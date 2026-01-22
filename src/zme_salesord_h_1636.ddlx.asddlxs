@@ -12,26 +12,26 @@ annotate entity ZSALESORDH_C_1636 with
   @UI.facet: [{ id: 'Venta',
                 label: 'Venta',
                 type: #IDENTIFICATION_REFERENCE,
-                position: 10 
+                position: 10
               },
              { id: 'Detalle',
                label: 'Detalle',
                type: #LINEITEM_REFERENCE,
                position: 20,
-               targetElement: '_Item' 
+               targetElement: '_Item'
               }]
 
   @UI.hidden: true
   HeaderUUID;
 
-  @UI: { lineItem: [{ position: 10, 
-                      importance: #HIGH, 
-                      label: 'Id Venta' 
+  @UI: { lineItem: [{ position: 10,
+                      importance: #HIGH,
+                      label: 'Id Venta'
                     },
                     { type: #FOR_ACTION,
                       dataAction: 'acceptOrder',
                       label: 'Accept Order',
-                      position: 10 
+                      position: 10
                     },
                     { type: #FOR_ACTION,
                       dataAction: 'rejectOrder',
@@ -62,9 +62,15 @@ annotate entity ZSALESORDH_C_1636 with
   Createon;
   @UI: { lineItem: [{ position: 70, importance: #HIGH }], identification: [{ position: 70, label: 'DeliveryDate' }] }
   Deliverydate;
-  @UI: { lineItem: [{ position: 80, importance: #HIGH }], identification: [{ position: 80, label: 'OrderStatus' }] }
+  @UI.hidden: true
+//  @UI: { lineItem: [{ position: 80, importance: #MEDIUM }], identification: [{ position: 80, label: 'OrderStatus' }],
+//         selectionField: [{ position: 40 }], textArrangement: #TEXT_ONLY }
   Orderstatus;
-  @UI: { lineItem: [{ position: 90, importance: #HIGH }], identification: [{ position: 90, label: 'ImageUrl' }] }
+//  @UI: { lineItem: [{ position: 90, importance: #MEDIUM }], identification: [{ position: 90, label: 'ImageUrl' }] }
+  @UI: { lineItem: [{ position: 80, importance: #MEDIUM }], identification: [{ position: 80, label: 'OrderStatus' }],
+         selectionField: [{ position: 40 }], textArrangement: #TEXT_ONLY }
+  EstadoOrden;
+  @UI: { lineItem: [{ position: 100, importance: #MEDIUM }], identification: [{ position: 100, label: 'ImageUrl' }] }
   Imageurl;
   @UI.hidden: true
   LocalCreateBy;
