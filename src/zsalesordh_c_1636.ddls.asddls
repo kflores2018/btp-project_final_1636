@@ -18,9 +18,6 @@ define root view entity ZSALESORDH_C_1636
       Country,
       Createon,
       Deliverydate,
-      @EndUserText.label: 'Txt Estado'      
-      @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_VIR_ELEM_SADL_C1636'
-      virtual EstadoOrden: abap.char( 10 ),
       Orderstatus,                   
       Imageurl,
       LocalCreateBy,

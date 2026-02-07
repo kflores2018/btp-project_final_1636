@@ -72,7 +72,7 @@ CLASS lhc_Header IMPLEMENTATION.
 
       IF update_requested = abap_true.
         "Revisar si tiene permisos.
-        IF lv_technical_name = 'CB9980001636' AND header-Country EQ 'Honduras'.
+        IF lv_technical_name = 'CB9980001636'."AND header-Country EQ 'Honduras'.
           update_granted = abap_true.
         ELSE.
           update_granted = abap_false.
@@ -83,7 +83,7 @@ CLASS lhc_Header IMPLEMENTATION.
       "Delete
       IF delete_requested = abap_true.
         "Revisar si tiene permisos.
-        IF lv_technical_name = 'CB9980001636' AND header-Country EQ 'Honduras'.
+        IF lv_technical_name = 'CB9980001636'. "AND header-Country EQ 'Honduras'.
           delete_granted = abap_true.
         ELSE.
           delete_granted = abap_false.

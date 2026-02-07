@@ -62,13 +62,13 @@ annotate entity ZSALESORDH_C_1636 with
   Createon;
   @UI: { lineItem: [{ position: 70, importance: #HIGH }], identification: [{ position: 70, label: 'DeliveryDate' }] }
   Deliverydate;  
-  @UI.hidden: true
-//  @UI: { lineItem: [{ position: 80, importance: #MEDIUM }], identification: [{ position: 80, label: 'OrderStatus' }],
-//         selectionField: [{ position: 40 }], textArrangement: #TEXT_ONLY }
+  @EndUserText.label: 'Order Status'
+  @UI.lineItem: [{ position : 80 }]
+  @UI.identification: [{ position : 80, label : 'Orderstatus' }] 
+  @Consumption.valueHelpDefinition: [{ entity : { name: 'ZVH_STATUS_ORDER_1636', element: 'Code' } }]
+  @UI.selectionField: [{ position : 20 }]
   Orderstatus;
-  @UI: { lineItem: [{ position: 90, importance: #MEDIUM }], identification: [{ position: 90, label: 'Txt.Estado' }] }
-  EstadoOrden;
-  @UI: { lineItem: [{ position: 100, importance: #MEDIUM }], identification: [{ position: 100, label: 'ImageUrl' }] }
+  @UI: { lineItem: [{ position: 90, importance: #MEDIUM }], identification: [{ position: 90, label: 'Imageurl' }] }
   Imageurl;
   @UI.hidden: true
   LocalCreateBy;
