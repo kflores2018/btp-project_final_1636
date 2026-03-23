@@ -14,7 +14,7 @@ define root view entity ZSALESORDH_I_1636
       Createon,
       Deliverydate,
       Orderstatus,
-      Imageurl,
+      Imageurl,  
       @Semantics.systemDateTime.localInstanceLastChangedAt: true
       LocalLastChangedAt,
       @Semantics.systemDateTime.lastChangedAt: true

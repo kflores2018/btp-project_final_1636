@@ -15,7 +15,7 @@ define root view entity ZSALESORDH_R_1636
       createon              as Createon,
       deliverydate          as Deliverydate,
       orderstatus           as Orderstatus,
-      imageurl              as Imageurl,
+      imageurl              as Imageurl,             
       @Semantics.user.createdBy: true
       local_create_by       as LocalCreateBy,
       @Semantics.systemDateTime.createdAt: true

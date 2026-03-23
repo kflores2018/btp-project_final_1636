@@ -11,7 +11,8 @@ ENDCLASS.
 
 
 
-CLASS zcls_cargardatos_1636 IMPLEMENTATION.
+CLASS ZCLS_CARGARDATOS_1636 IMPLEMENTATION.
+
 
   METHOD if_oo_adt_classrun~main.
 
@@ -89,5 +90,4 @@ CLASS zcls_cargardatos_1636 IMPLEMENTATION.
 
 
 ENDMETHOD.
-
 ENDCLASS.

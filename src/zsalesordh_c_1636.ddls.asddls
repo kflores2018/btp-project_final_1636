@@ -18,8 +18,11 @@ define root view entity ZSALESORDH_C_1636
       Country,
       Createon,
       Deliverydate,
-      Orderstatus,                   
-      Imageurl,
+      Orderstatus,                 
+      Imageurl,      
+      @Semantics.imageUrl: true  
+      @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_VIR_ELEM_SADL_C1636'
+      virtual ImagePreview: abap.char(255),  
       LocalCreateBy,
       LocalCreateAt,
       LocalLastChangedBy,

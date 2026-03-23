@@ -3,12 +3,15 @@
       headerInfo: { typeName: 'Detalle',
                     typeNamePlural: 'Detalles',
                     title: { type: #STANDARD,
-                             value: 'ItemID' } } }
+                             value: 'Description' },
+                    description: { value: 'Name' }
+                     }
+                  }
 annotate entity ZSALESORDI_C_1636 with
 {
 
   @UI.facet: [{ id: 'Detalle',
-             label: 'Detalle',
+             label: 'Detalles',
              type: #IDENTIFICATION_REFERENCE,
              position: 10 } ]
 
@@ -16,9 +19,9 @@ annotate entity ZSALESORDI_C_1636 with
   ItemUUID;
   @UI.hidden: true
   HeaderUUID;
-
-  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'ID Detalle' }] }
+  @UI.hidden: true  
   ItemID;
+  
   @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'Name' }] }
   Name;
   @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20, label: 'Description' }] }
