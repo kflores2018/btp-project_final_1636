@@ -12,8 +12,7 @@ ENDCLASS.
 
 
 
-CLASS ZCL_VIR_ELEM_SADL_C1636 IMPLEMENTATION.
-
+CLASS zcl_vir_elem_sadl_c1636 IMPLEMENTATION.
 
   METHOD if_sadl_exit_calc_element_read~calculate.
 
@@ -30,8 +29,18 @@ CLASS ZCL_VIR_ELEM_SADL_C1636 IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD IF_SADL_EXIT_CALC_ELEMENT_READ~GET_CALCULATION_INFO.
+  METHOD if_sadl_exit_calc_element_read~get_calculation_info.
 
+*    CASE iv_entity.
+*      WHEN 'ZSALESORDH_C_1636'.
+*
+*        LOOP AT it_requested_calc_elements INTO DATA(ls_calc_elem).
+*            IF ls_calc_elem = 'EstadoOrden'.
+*               insert conv #( 'Orderstatus' ) into table et_requested_orig_elements.
+*            ENDIF.
+*        ENDLOOP.
+*
+*    ENDCASE.
 
   ENDMETHOD.
 

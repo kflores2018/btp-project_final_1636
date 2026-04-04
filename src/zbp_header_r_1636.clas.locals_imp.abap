@@ -200,10 +200,6 @@ CLASS lhc_Header IMPLEMENTATION.
 
   METHOD setOrderNumber.
 
-    DATA: lv_prefijo type string value 'VTA00000',
-          lv_ID_BD   type string,
-          lv_ID      type i value 0.
-
     READ ENTITIES OF zsalesordh_r_1636 IN LOCAL MODE
     ENTITY Header
     FIELDS ( HeaderID )
@@ -216,17 +212,12 @@ CLASS lhc_Header IMPLEMENTATION.
           FIELDS MAX( header_id )
           INTO @DATA(max_HeaderID).
 
-    IF max_HeaderID is not initial.
-       split max_HeaderID AT '-' INTO lv_prefijo lv_id_bd.
-       lv_id = lv_id_bd.
-    ENDIF.
-
     MODIFY ENTITIES OF zsalesordh_r_1636 IN LOCAL MODE
           ENTITY Header
           UPDATE
           FIELDS ( HeaderID )
           WITH VALUE #( FOR header IN headers INDEX INTO i ( %tky = header-%tky
-                                                             HeaderID = |{ lv_prefijo }-{ lv_id + i }|
+                                                             HeaderID = CONV int1( max_headerid + i )
                                                             ) ).
 
   ENDMETHOD.

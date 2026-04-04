@@ -70,7 +70,7 @@ annotate entity ZSALESORDH_C_1636 with
   Orderstatus;
   //@UI: { lineItem: [{ position: 90, importance: #MEDIUM }], identification: [{ position: 90, label: 'Imageurl' }] }
   @UI.lineItem: [{ position: 90 }]
-  @UI.identification: [{ position: 90, label: 'Imagen' }]  
+  @UI.identification: [{ position: 90, label: 'ImagenUrl' }]  
   Imageurl;
   
   @UI.lineItem: [{ position: 100 }]
